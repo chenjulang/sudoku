@@ -1,3 +1,21 @@
+{
+  "name": "Lean3 dev container",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "onCreateCommand": "echo \"Downloading the Lean 3 mathematical library...\" && leanpkg configure && leanproject get-mathlib-cache && echo \"Finished setup! Open a file using the Explorer in the top-left of your screen.\"",
+
+  "customizations": {
+    "vscode" : {
+      "extensions" : [ "leanprover.lean" ]
+    }
+  }
+}
+
+
+
 # Playing sudoku in the Lean theorem prover
 
 ![Screenshot](/screenshot/screenshot.jpg)

@@ -1,12 +1,15 @@
 {
-  "name": "mathlib",
-  "image": "leanprovercommunity/mathlib:debian",
-  "settings": {
-      "terminal.integrated.shell.linux": "/bin/bash"
+  "name": "Lean3 dev container",
+
+  "build": {
+    "dockerfile": "Dockerfile"
   },
-  "extensions": [
-      "jroesch.lean",
-      "tamasfe.even-better-toml"
-  ],
-  "remoteUser": "lean",
+
+  // "onCreateCommand": "echo \"Downloading the Lean 3 mathematical library...\" && leanpkg configure && leanproject get-mathlib-cache && echo \"Finished setup! Open a file using the Explorer in the top-left of your screen.\"",
+
+  "customizations": {
+    "vscode" : {
+      "extensions" : [ "leanprover.lean" ]
+    }
+  }
 }
