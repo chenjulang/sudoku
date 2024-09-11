@@ -1,13 +1,27 @@
 {
-  "name": "Lean3 dev container",
-
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-
-  "customizations": {
-    "vscode" : {
-      "extensions" : [ "leanprover.lean" ]
-    }
-  }
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "ubuntu-22.04" }
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"git": "os-provided"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"leanprover.lean"
+			]
+		},
+		"codespaces": {
+			"openFiles": [
+				"src/basic.lean"
+			]
+		}
+	},
+	"postCreateCommand": [
+		"leanpkg configure",
+		"leanproject get-mathlib-cache"
+	]
 }
