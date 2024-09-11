@@ -1,27 +1,15 @@
 {
-	"name": "Ubuntu",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": { "VARIANT": "ubuntu-22.04" }
-	},
-	"remoteUser": "vscode",
-	"features": {
-		"git": "os-provided"
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"leanprover.lean"
-			]
-		},
-		"codespaces": {
-			"openFiles": [
-				"src/basic.lean"
-			]
-		}
-	},
-	"postCreateCommand": [
-		"leanpkg configure",
-		"leanproject get-mathlib-cache"
-	]
+  "name": "Lean3 dev container",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "onCreateCommand": "echo \"Downloading the Lean 4 mathematical library...\" && leanpkg configure && leanproject get-mathlib-cache && echo \"Finished setup! Open a file using the Explorer in the top-left of your screen.\"",
+
+  "customizations": {
+    "vscode" : {
+      "extensions" : [ "leanprover.lean3" ]
+    }
+  }
 }
